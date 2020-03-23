@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // let arr = [12, 8, 5, 24, 0, 0, 16, 1]
+      let arr = [1, 0]
+      function quick(arr) {
+        if (arr.length <= 1) return arr
+        let middle = arr.splice(Math.floor(arr.length / 2), 1)[0]
+        let left = []
+        let right = []
+        arr.forEach((el) => {
+          el >= middle ? right.push(el) : left.push(el)
+        })
+        return quick(left).concat(middle, quick(right))
+      }
+      let res = quick(arr)
+      console.log(res)
+    </script>
+  </body>
+</html>

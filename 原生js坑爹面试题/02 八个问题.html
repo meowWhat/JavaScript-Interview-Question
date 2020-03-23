@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //问题1：浏览器控制台上会打印什么？
+      // var a = 10
+      // function foo() {
+      //   console.log(a) // ??
+      //   var a = 20
+      // }
+      // foo()
+      //问题 2 :如果我们使用 let 或 const 代替 var，输出是否相同
+      // var a = 10
+      // function foo() {
+      //   console.log(a) // ??
+      //   let a = 20
+      // }
+      // foo()
+      //问题3："newArray"中有哪些元素？
+      // var array = []
+      // for (var i = 0; i < 3; i++) {
+      //   array.push(() => i)
+      // }
+      // var newArray = array.map((el) => el())
+      // console.log(newArray) // ??
+      //问题 4:如果我们在浏览器控制台中运行'foo'函数，是否会导致堆栈溢出错误？
+      // function foo() {
+      //   setTimeout(foo, 0) // 是否存在堆栈溢出错误?
+      // }
+      //问题5: 如果在控制台中运行以下函数，页面(选项卡)的 UI 是否仍然响应
+      // function foo() {
+      //   return Promise.resolve().then(foo)
+      // }
+      // foo()
+      //问题6 ：我们能否以某种方式为下面的语句使用展开运算而不导致类型错误
+      // function fn() {
+      //   let arr = [...arguments].slice(1)
+      //   console.log(arr)
+      // }
+      // fn(this, 2)
+      //问题 7 :下面代码的执行顺序
+      // console.time('start')
+      // setTimeout(() => {
+      //   console.log(2)
+      // }, 10)
+      // new Promise((resolve) => {
+      //   console.log(3)
+      //   resolve()
+      //   console.log(4)
+      // }).then(() => {
+      //   console.log(5)
+      //   console.timeEnd('start')
+      // })
+      // requestAnimationFrame(() => console.log(9))
+      // console.log(6)
+      // console.log(8)
+      // // 3 4 6 8 5 time 9 2
+
+      // //问题8: 解决setInterval 的bug
+      // setTimeout(function A() {
+      //   console.log(1)
+      //   setTimeout(A, 1000)
+      // }, 1000)
+
+      // 测试
+      // const async1 = async () => {
+      //   console.log('2')
+      //   setTimeout(() => {
+      //     console.log('timer1')
+      //   }, 2000)
+      //   await new Promise((resolve) => {
+      //     console.log('3')
+      //     return '4'
+      //   })
+      // }
+      // console.log('1')
+      // async1().then((res) => {
+      //   console.log(res)
+      // })
+      // console.log('2')
+      // Promise.resolve('1')
+      //   .then(2)
+      //   .then(Promise.resolve(3))
+      //   .catch(4)
+      //   .then((res) => console.log(res))
+      // setTimeout(() => {
+      //   console.log('timer2')
+      // }, 1000)
+      setTimeout(() => {
+        console.log('asd')
+      })
+      setTimeout(() => {
+        console.log('bb')
+      })
+    </script>
+  </body>
+</html>

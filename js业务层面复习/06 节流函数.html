@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+</html>
+!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+    </ul>
+    <script>
+      function throttle(fn, delay) {
+        // 利用闭包保存时间
+        let prev = Date.now()
+        return function() {
+          let context = this
+          let arg = arguments
+          let now = Date.now()
+          if (now - prev >= delay) {
+            fn.apply(context, arg)
+            prev = Date.now()
+          }
+        }
+      }
+
+      function fn() {
+        console.log('节流')
+      }
+      addEventListener('scroll', throttle(fn, 2000))
+    </script>
+  </body>
+</html>

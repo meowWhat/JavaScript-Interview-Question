@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <ul>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+      <li>50</li>
+    </ul>
+    <script>
+      // 思路:在规定时间内未触发第二次，则执行
+      function debounce(fn, delay) {
+        // 利用闭包保存定时器
+        let timer = null
+        return function() {
+          let context = this
+          let arg = arguments
+          // 在规定时间内再次触发会先清除定时器后再重设定时器
+          clearTimeout(timer)
+          timer = setTimeout(function() {
+            fn.apply(context, arg)
+          }, delay)
+        }
+      }
+
+      function fn() {
+        console.log('防抖')
+      }
+      addEventListener('scroll', debounce(fn, 1000))
+    </script>
+  </body>
+</html>

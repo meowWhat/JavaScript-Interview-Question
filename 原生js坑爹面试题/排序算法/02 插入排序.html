@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [12, 8, 24, 16, 1]
+      function insert(arr) {
+        let handle = [arr[0]]
+        //[12,8]
+        for (let i = 1; i < arr.length; i++) {
+          let ready = arr[i]
+          for (let j = 0; j < i; j++) {
+            let temp = handle[j]
+
+            if (ready < temp) {
+              handle.splice(j, 0, ready)
+              break
+            }
+            if (j === handle.length - 1) {
+              handle.push(ready)
+            }
+          }
+        }
+        return handle
+      }
+      console.log(insert(arr))
+    </script>
+  </body>
+</html>

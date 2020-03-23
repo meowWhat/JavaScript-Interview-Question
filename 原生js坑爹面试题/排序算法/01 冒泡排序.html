@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+
+  <script>
+    let arr = [12, 8, 24, 16, 1]
+    // console.log(arr.sort((a, b) => a - b))
+    // function bubble(arr) {
+    //   for (let i = 0; i < arr.length; i++) {
+    //     for (let j = i + 1; j < arr.length; j++) {
+    //       console.log('##') //10
+
+    //       let temp = arr[i]
+    //       if (arr[i] > arr[j]) {
+    //         console.log('~~') //6
+
+    //         arr[i] = arr[j]
+    //         arr[j] = temp
+    //       }
+    //     }
+    //   }
+    // }
+    function bubble(arr) {
+      for (let i = 0; i < arr.length - 1; i++) {
+        for (let j = 0; j < arr.length - 1 - i; j++) {
+          console.log('##') //9
+          if (arr[j] > arr[j + 1]) {
+            console.log('~~') //6
+            ;[arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
+          }
+        }
+      }
+    }
+    bubble(arr)
+  </script>
+</html>

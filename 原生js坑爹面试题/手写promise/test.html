@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./Promise.js"></script>
+
+    <script>
+      //先来看下 promise的使用
+
+      console.log('1')
+
+      new Promise((resolve) => {
+        console.log('p1')
+        setTimeout(() => {
+          console.log('3')
+          resolve(4)
+        }, 1000)
+      })
+        .then((a) => {
+          console.log('p2')
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              console.log(a)
+              reject(5)
+            }, 1000)
+          })
+        })
+        .then(
+          (a) => {
+            console.log('p3')
+            return new Promise((resolve) => {
+              setTimeout(() => {
+                console.log(a)
+                resolve(6)
+              }, 1000)
+            })
+          },
+          (a) => {
+            console.log('p3')
+            return new Promise((resolve) => {
+              setTimeout(() => {
+                console.log(a)
+                resolve(6)
+              }, 1000)
+            })
+          }
+        )
+        .then((a) => {
+          console.log('p4')
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              console.log(a)
+            }, 1000)
+          })
+        })
+
+      console.log('2')
+    </script>
+  </body>
+</html>

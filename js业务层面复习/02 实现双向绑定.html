@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" />
+  </body>
+  <script>
+    let obj = { text: null }
+    let temp = null
+    let inputText = document.querySelector('input')
+
+    //劫持对象
+    Object.defineProperty(obj, 'text', {
+      configurable: true,
+      enumerable: true,
+      set(value) {
+        //劫持text属性的设置
+        console.log(value)
+        inputText.value = value
+        //做订阅发布
+        temp = value
+      },
+      get() {
+        return temp
+      }
+    })
+    inputText.addEventListener('keyup', () => {
+      //通过事件绑定
+      obj.text = inputText.value
+    })
+  </script>
+</html>

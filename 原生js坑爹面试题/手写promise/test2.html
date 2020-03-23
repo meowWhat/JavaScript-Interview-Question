@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="./Promise.js"></script>
+    <script>
+      new Promise((resolve) => {
+        console.log(0)
+        resolve(1)
+      })
+        .then((a) => {
+          console.log(a)
+          return new Promise((resolve) => {
+            resolve(
+              new Promise((resolve) => {
+                resolve(
+                  new Promise((resolve) => {
+                    resolve(4)
+                  })
+                )
+              })
+            )
+          })
+        })
+        .then((a) => {
+          console.log(a)
+          return new Promise((resolve, reject) => {
+            reject(
+              new Promise((resolve, reject) => {
+                reject(6)
+              })
+            )
+          })
+        })
+        .then(
+          (a) => {
+            console.log(a)
+          },
+          (a) => {
+            console.log(a + 1)
+          }
+        )
+    </script>
+  </body>
+</html>
